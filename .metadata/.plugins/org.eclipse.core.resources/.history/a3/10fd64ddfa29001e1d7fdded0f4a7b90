@@ -1,0 +1,19 @@
+package study.d.collection;
+
+import java.util.ArrayList;
+
+public class QueueSample {
+
+	public static void main(String[] args) {
+		QueueSample sample = new QueueSample();
+		sample.checkLinkedList1();
+	}
+	public void checkLinkedList1() {
+//		LinkedList<String> link = new LinkedList<>();
+		ArrayList<String> link = new ArrayList<>();
+		link.add("A");
+		link.add("B");
+		System.out.println(link);
+	}
+
+}

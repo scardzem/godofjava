@@ -1,0 +1,15 @@
+package e.thread;
+
+public class RunDaemonThread {
+
+	public static void main(String[] args) {
+		RunDaemonThread sample = new RunDaemonThread();
+		sample.runDaemonThread();
+	}
+	
+	public void runDaemonThread() {
+		DaemonThread daemon = new DaemonThread();
+		daemon.start();
+	}
+
+}

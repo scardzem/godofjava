@@ -1,0 +1,17 @@
+package e.thread;
+
+public class RunThreads {
+
+	public static void main(String[] args) {
+		
+	}
+	public void runBasic() {
+		RunnableSample runnable = new RunnableSample();
+		new Thread(runnable).start();  //start()를 하면 해당 클래스의 run()메소드가 실행된다.
+		
+		ThreadSample thread = new ThreadSample();
+		thread.start();
+		System.out.println("RunThreads.runBasic() method is ended.");
+	}
+
+}

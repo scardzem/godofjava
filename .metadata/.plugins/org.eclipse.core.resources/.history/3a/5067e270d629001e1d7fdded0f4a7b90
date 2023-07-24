@@ -1,0 +1,14 @@
+package study.d.collection;
+
+import java.util.ArrayList;
+
+@SuppressWarnings("all")  //@SuppressWarnings("unused")
+public class ListSample {
+	public static void main(String[] args) {
+		ListSample sample=new ListSample();
+        sample.checkArrayList1();
+    }
+    public void checkArrayList1() {
+        ArrayList list1=new ArrayList();
+    }
+}

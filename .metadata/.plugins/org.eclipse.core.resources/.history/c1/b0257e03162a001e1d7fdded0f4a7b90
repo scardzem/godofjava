@@ -1,0 +1,14 @@
+package study.d.collection;
+
+import java.util.TreeMap;
+
+public class TreeMapSample {
+
+	public static void main(String[] args) {
+		
+	}
+	public void checkTreeMap() {
+		TreeMap<String, String> map = new TreeMap<>();
+		
+	}
+}

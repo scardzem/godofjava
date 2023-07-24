@@ -1,0 +1,9 @@
+package e.thread;
+
+public class RunMultiThreads {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

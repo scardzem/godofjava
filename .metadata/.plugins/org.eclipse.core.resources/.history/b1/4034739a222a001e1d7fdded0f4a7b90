@@ -1,0 +1,13 @@
+package study.d.collection.practice;
+
+public class RandomNumberStatics {
+	
+	import java.util.Hashtable;
+	import java.util.Random;
+	import java.util.Set;
+
+	public static void main(String[] args) {
+		
+	}
+
+}

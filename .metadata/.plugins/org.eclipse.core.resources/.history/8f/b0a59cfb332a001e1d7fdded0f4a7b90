@@ -1,0 +1,5 @@
+package e.thread;
+
+public class ThreadSample extends Thread{
+	
+}
