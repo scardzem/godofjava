@@ -1,0 +1,18 @@
+package e.io.object;
+
+import static java.io.File.separator;
+
+public class ManageObject {
+
+	public static void main(String[] args) {
+		ManageObject manager = new ManageObject();
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"serial.obj";
+		SerialDTO dto = new SerialDTO("GodOfJavaBook",1,true,100);
+		manager.saveObject(fullPath,dto);
+	}
+	public void saveObject(String fullPath, SerialDTO dto) {
+		
+	}
+
+}

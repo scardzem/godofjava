@@ -1,9 +1,0 @@
-package study.d.collection;
-
-public class TreeMapSample {
-
-	public static void main(String[] args) {
-
-	}
-
-}

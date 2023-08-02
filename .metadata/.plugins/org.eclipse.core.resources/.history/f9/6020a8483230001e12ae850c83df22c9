@@ -1,0 +1,26 @@
+package e.io;
+
+import static java.io.File.separator; //File.separator로 사용할 수도 있고 이렇게 사용할 수도 있다.(709, 725)
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile manager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"number.txt";
+		manager.writeFile(fullPath, numberCount);
+	}
+	public void writeFile(String fileName, int numberCount) {
+		FileWriter fileWriter = null;  // close()가 정상적으로 수행되도록 try문 밖에 선언
+		BufferedWriter bufferedWriter = null;  // close()가 정상적으로 수행되도록 try문 밖에 선언
+		try {
+			fileWriter = new FileWriter(fileName);
+			bufferedWriter = new BufferedWriter(fileWriter);
+		}
+	}
+
+}

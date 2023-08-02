@@ -1,0 +1,118 @@
+package e.io;
+
+import static java.io.File.separator; //File.separator로 사용할 수도 있고 이렇게 사용할 수도 있다.(709, 725)
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+//725페이지 실습예제.
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile manager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"number.txt";
+		manager.writeFile(fullPath, numberCount);
+		manager.readFile(fullPath);
+	}
+	
+	//텍스트파일에 내용을 쓰는 메소드
+	public void writeFile(String fileName, int numberCount) {
+		FileWriter fileWriter = null;  // 1) 파일에 쓰는 작업을 하기 위해서 FileFilter 객체 생성.
+		BufferedWriter bufferedWriter = null;  // 2) 파일에 쓰기작업을 할 때 버퍼를 사용하기 위해 BufferedWriter 객체 생성
+		try {
+			fileWriter = new FileWriter(fileName);
+//			fileWriter = new FileWriter(fileName, true);  //fileWriter의 생성자 중 append 하는 생성자를 사용하면 뒤에 내용이 추가된다.
+			bufferedWriter = new BufferedWriter(fileWriter);
+			for(int i=0;i<=numberCount;i++) {
+				bufferedWriter.write(Integer.toString(i));  // 3) bufferedWriter객체의 write()메소드로 데이터 입력.
+				bufferedWriter.newLine();  // 4) 줄바꿈하는 메소드. 이걸 하지 않으면 한 줄에 모든 결과가 출력된다.
+			}
+			System.out.println("Write Success!!!!!");
+		} catch(IOException e) {
+			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(bufferedWriter != null) {
+				try {
+					bufferedWriter.close();
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(fileWriter != null) {
+				try {
+					fileWriter.close();
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}  // writeFile() End
+	
+	
+	//텍스트파일을 읽는 메소드 (728)
+	public void readFile(String fileName) {
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
+		try {
+			fileReader = new FileReader(fileName);
+			bufferedReader = new BufferedReader(fileReader);
+			String data;
+			while( (data = bufferedReader.readLine()) != null) {  //readLine() BufferedReader의 메소드. 리턴타입은 String. 한 줄을 읽는다.
+				System.out.println(data);
+			}
+			System.out.println("Read Success!!!!!!");
+		} catch(IOException e) {
+			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(bufferedReader!=null) {
+				try {
+					bufferedReader.close();
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(fileReader!=null) {
+				try {
+					fileReader.close();
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	//readFile() 메소드처럼 코드를 작성하면 코드의 길이도 길어지고, 가독성도 많이 떨어진다.
+	//java.util 패키지에 있는 Scanner 클래스를 사용하면 쉽게 파일을 읽을 수 있다.
+	//Scanner 클래스는 텍스트 기반의 기본 자료형이나 문자열 데이터를 처리하기 위한 클래스다. 정규 표현식을 사용하여 데이터 처리도 가능하다.
+	public void readFileWithScanner(String fileName) {
+		File file = new File(fileName);
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(file);  //File객체를 Scanner 생성시 매개변수로 넣는다.
+			while(scanner.hasNextLine()) {
+				System.out.println(scanner.nextLine());
+			}
+			System.out.println("Read Success!!!!!");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(scanner != null) {
+				scanner.close();
+			}
+		}
+	}
+
+}
