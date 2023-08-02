@@ -1,0 +1,20 @@
+package e.io.practice;
+
+import java.io.File;
+
+public class FileSizeSummary {
+
+	public static void main(String[] args) {
+		FileSizeSummary sample = new FileSizeSummary();
+		String path = "C\\godofjavaEclipse";
+		long sum = sample.printFileSize(path);
+		System.out.println(path + "'s total size = " + sum);
+	}
+	
+	public long printFileSize(String dirName) {
+		File file = new File(dirName);
+		long result = file.length();
+		return result;
+	}
+
+}

@@ -1,9 +1,0 @@
-package study.d.collection;
-
-public class StackSample {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

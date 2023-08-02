@@ -1,0 +1,51 @@
+package e.io;
+
+import static java.io.File.separator; //File.separator로 사용할 수도 있고 이렇게 사용할 수도 있다.(709, 725)
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile manager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"number.txt";
+		manager.writeFile(fullPath, numberCount);
+	}
+	public void writeFile(String fileName, int numberCount) {
+		FileWriter fileWriter = null;  // close()가 정상적으로 수행되도록 try문 밖에 선언
+		BufferedWriter bufferedWriter = null;  // close()가 정상적으로 수행되도록 try문 밖에 선언
+		try {
+			fileWriter = new FileWriter(fileName);
+			bufferedWriter = new BufferedWriter(fileWriter);
+			for(int i=0;i<=numberCount;i++) {
+				bufferedWriter.write(Integer.toString(i));
+				bufferedWriter.newLine();
+			}
+			System.out.println("Write Success!!!!!");
+		} catch(IOException e) {
+			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(bufferedWriter != null) {
+				try {
+					bufferedWriter.close();
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(fileWriter != null) {
+				try {
+					fileWriter.close();
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+}

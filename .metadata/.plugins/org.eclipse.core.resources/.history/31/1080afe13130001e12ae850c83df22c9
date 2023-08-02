@@ -1,0 +1,26 @@
+package e.io;
+
+import static java.io.File.separator; //File.separator로 사용할 수도 있고 이렇게 사용할 수도 있다.(709, 725)
+
+import java.io.File;
+
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile manager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"number.txt";
+		manager.writeFile(fullPath, numberCount);
+		manager.mkDir(fullPath);
+	}
+	public void writeFile(String fileName, int numberCount) {
+		
+	}
+	//폴더 만들기. \\godofjava\\text로 경로 바꾼다음 만듦.
+	public void mkDir(String fullPath) {
+		File file = new File(fullPath);
+		System.out.println(file.mkdir());
+	}
+
+}

@@ -1,0 +1,11 @@
+package e.io;
+
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile nanager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text";
+	}
+
+}

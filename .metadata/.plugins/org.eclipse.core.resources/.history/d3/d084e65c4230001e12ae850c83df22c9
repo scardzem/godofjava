@@ -1,0 +1,36 @@
+package e.io.practice;
+
+import java.io.File;
+
+public class FileSizeSummary {
+
+	public static void main(String[] args) {
+		FileSizeSummary sample = new FileSizeSummary();
+		String path = "C\\godofjavaEclipse";
+		long sum = sample.printFileSize(path);
+		System.out.println(path + "'s total size = " + sum);
+	}
+	
+	public long printFileSize(String dirName) {
+		File dir = new File(dirName);
+		long sum = 0;
+		if(dir.isDirectory()) {
+			File[] fileList = dir.listFiles();
+			for(File file:fileList) {
+				if(file.isFile()) {
+					String tempFileName = file.getAbsolutePath();
+					long fileLength = file.length();
+					System.out.println(tempFileName + " = " + fileLength);  //"파일 이름 = 크기" 출력
+					sum+=fileLength;  //sum 변수에 fileLength를 하나하나 더해준다.
+				} else {
+					String tempDirName = file.getAbsolutePath();
+					long fileLength = printFileSize(tempDirName);  //printFileSize() 처음보는 메소드.
+					System.out.println("["+tempDirName+"] = "+fileLength);
+					sum+=fileLength;
+				}
+			}
+		}
+		return result;
+	}
+
+}

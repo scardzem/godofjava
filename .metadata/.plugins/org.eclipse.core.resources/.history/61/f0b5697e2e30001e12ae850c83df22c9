@@ -1,0 +1,15 @@
+package e.io;
+
+import static java.io.File.separator;
+
+public class ManageTextFile {
+
+	public static void main(String[] args) {
+		ManageTextFile manager = new ManageTextFile();
+		int numberCount = 10;
+		String fullPath = separator+"godofjavaEclipse"+separator+"text"
+							+separator+"number.txt";
+		manager.writeFile(fullPath, numberCount);
+	}
+
+}
